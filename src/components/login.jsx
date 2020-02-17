@@ -10,7 +10,7 @@ class Login extends Component {
 
   loginAction = e => {
     e.preventDefault();
-    console.log("hii");
+    // console.log("hii");
     // alert(this.state.userId);
     const newUserId = this.state.userId;
     const newPassword = this.state.password;
