@@ -1,16 +1,7 @@
 import React, { Component } from "react";
-// import ReactDOM from "react-dom";
-// import { Link } from "react-router-dom";
-import {
-  BrowserRouter as Router,
-  Route,
-  //   Redirect,
-  Switch
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MainConainer from "./mainConainer";
 import PurchaseReport from "./purchaseReport";
-
-import { withRouter } from "react-router-dom";
 import Navbar from "./navbar";
 import AccountInfo from "./accountInfo";
 import Buy from "./buy";
@@ -43,7 +34,4 @@ class Home extends Component {
     );
   }
 }
-
-// userId={this.props.match.params.userId}
-
 export default Home;

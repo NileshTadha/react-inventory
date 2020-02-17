@@ -1,14 +1,4 @@
 import React, { Component } from "react";
-// import ReactDOM from "react-dom";
-// import { Observer } from "rxjs/Observer";
-// import { addTodo, deleteTodo, toggleTodo } from "./actionCreators";
-import {
-  // BrowserRouter as Router,
-  // Route,
-  Redirect
-  // Switch
-} from "react-router-dom";
-import { withRouter } from "react-router-dom";
 
 class Login extends Component {
   state = {
@@ -20,7 +10,6 @@ class Login extends Component {
   loginAction = e => {
     e.preventDefault();
     console.log("hii");
-    // alert("hello");
     // alert(this.state.userId);
     const newUserId = this.state.userId;
     const newPassword = this.state.password;
@@ -30,7 +19,7 @@ class Login extends Component {
       return;
     }
     const url =
-      "http://172.20.49.143:8080/inventory/login?user_id=" +
+      "http://172.20.49.61:8080/inventory/login?user_id=" +
       newUserId +
       "&password=" +
       newPassword;
@@ -57,10 +46,7 @@ class Login extends Component {
         this.setState({ isValid: true }, () => {
           window.location.href = "/home";
         });
-        // alert(sessionStorage.getItem("userTocken"));
-        // window.location.assign("https://google.com");
       });
-    // event.preventDefault();
   };
 
   myChange = event => {
@@ -69,11 +55,7 @@ class Login extends Component {
     this.setState({ [name]: val });
   };
 
-  // state = {  }
   render() {
-    // if (this.state.isValid === true) {
-    //   return <Redirect to="/home" />;
-    // }
     return (
       <div id="container-login">
         <div id="title">
@@ -114,7 +96,6 @@ class Login extends Component {
               onBlur={this.myChange}
             />
           </div>
-          {/* <br> */}
 
           <input type="submit" onClick={this.loginAction} value="Log In" />
         </form>
@@ -130,4 +111,4 @@ class Login extends Component {
   }
 }
 
-export default withRouter(Login);
+export default Login;

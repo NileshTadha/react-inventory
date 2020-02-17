@@ -4,7 +4,7 @@ class MoreVendor extends Component {
   // state = {  }
   render() {
     let i = 0;
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className="best-features">
         <div className="container">

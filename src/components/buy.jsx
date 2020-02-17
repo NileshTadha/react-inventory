@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import MoreInfo from "./moreInfo";
 import MoreVendor from "./moreVendor";
 class Buy extends Component {
   state = {
@@ -7,10 +6,6 @@ class Buy extends Component {
     loading: false,
     quantity: 0,
     morVendor: false
-    // product: { prodId: "", prodName: "", price: "" },
-    // vendor: { vendorId: "", vendorName: "", password: "" },
-    // qty: 0,
-    // price: 0
   };
 
   componentDidMount() {
@@ -18,11 +13,10 @@ class Buy extends Component {
   }
   onLoadFunc = () => {
     var newurl =
-      "http://172.20.49.143:8080/inventory/user/home/getProduct?prodId=" +
+      "http://172.20.49.61:8080/inventory/user/home/getProduct?prodId=" +
       this.props.match.params.prodId;
 
-    console.log(newurl);
-    // //console.log(buyPageUrl["vendorId"]);
+    // console.log(newurl);
 
     fetch(newurl, {
       method: "GET",
@@ -31,24 +25,11 @@ class Buy extends Component {
       }
     })
       .then(response => {
-        // //console.log(response);
         return response.json();
       })
       .then(json => {
         // console.log(json);
         this.setState({
-          //   product: {
-          //     prodId: json[0].product.prodId,
-          //     prodName: json[0].product.prodName,
-          //     price: json[0].product.price
-          //   },
-          //   vendor: {
-          //     vendorId: json[0].vendor.vendorId,
-          //     vendorName: json[0].vendor.vendorName,
-          //     password: json[0].vendor.password
-          //   },
-          //   qty: json[0].qty,
-          //   price: json[0].price
           json: json,
           loading: true
         });
@@ -73,7 +54,7 @@ class Buy extends Component {
       return;
     }
     var newurl =
-      "http://172.20.49.143:8080/inventory/user/supply?prodId=" +
+      "http://172.20.49.61:8080/inventory/user/supply?prodId=" +
       this.state.json[id].product.prodId +
       "&qty=" +
       quantity +
@@ -85,8 +66,6 @@ class Buy extends Component {
       this.state.json[id].vendor.vendorId;
     // console.log(newurl);
 
-    // //console.log(buyPageUrl["vendorId"]);
-
     fetch(newurl, {
       method: "POST",
       headers: {
@@ -94,14 +73,12 @@ class Buy extends Component {
       }
     })
       .then(response => {
-        // //console.log(response);
         return response.json();
       })
       .then(json => {
         // //console.log(json);
-        if (JSON.stringify(json) == "true") {
+        if (JSON.stringify(json) === "true") {
           alert("Buy successfully");
-          // window.location.assign("http://172.20.49.106:5500/home.html");
           window.location.reload();
           return;
         }
@@ -114,12 +91,6 @@ class Buy extends Component {
   };
 
   render() {
-    // let j = this.state.json[0];
-
-    // console.log(this.state.loading && j && j.product);
-    // console.log(this.props);
-    let i = 0;
-
     return (
       <div>
         <div className="best-features">
@@ -166,31 +137,31 @@ class Buy extends Component {
                     placeholder="Quantity"
                     name="quantity"
                   />
-
-                  <a
-                    style={{ color: "white", backgroundColor: "#333" }}
-                    className="filled-button"
+                  <br />
+                  <br />
+                  <button
+                    className="button"
+                    // style={{ padding: "8px 12px" }}
                     onClick={() => {
                       let id = 0;
                       this.buyNow(id);
                     }}
                   >
                     Buy Now
-                  </a>
+                  </button>
                   <br />
                   <br />
-                  <a
-                    style={{ color: "white", backgroundColor: "#333" }}
-                    onClick={this.showVendor}
-                    className="filled-button"
-                  >
+                  <br />
+                  <br />
+                  <br />
+                  <button onClick={this.showVendor} className="button">
                     Show more Vendor
-                  </a>
+                  </button>
                 </div>
               </div>
               <div className="col-md-6">
                 <div className="right-image">
-                  <img id="rightImage" alt="" />
+                  <img id="rightImage" src={require("./p006.jpeg")} alt="" />
                 </div>
               </div>
             </div>

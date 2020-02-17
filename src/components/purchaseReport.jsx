@@ -1,9 +1,5 @@
 import React, { Component } from "react";
-import SearchBar from "./searchbar";
 import PurchaseDetails from "./purchaseDetails";
-import { withRouter } from "react-router-dom";
-
-let resjson;
 
 class PurchaseReport extends Component {
   state = {
@@ -11,17 +7,15 @@ class PurchaseReport extends Component {
   };
 
   componentDidMount() {
-    console.log("mounted");
     this.onLoadFunc();
   }
 
   onLoadFunc = () => {
-    console.log("hiii");
     let url =
-      "http://172.20.49.143:8080/inventory/user/purchaseReport?user_id=" +
+      "http://172.20.49.61:8080/inventory/user/purchaseReport?user_id=" +
       localStorage.getItem("userId") +
       "&selected=date";
-    console.log(url);
+    // console.log(url);
 
     fetch(url, {
       method: "GET",
@@ -34,15 +28,13 @@ class PurchaseReport extends Component {
         return response.json();
       })
       .then(json => {
-        console.log(json);
+        // console.log(json);
         this.setState({ item: json });
       });
   };
 
   render() {
-    // console.log(resjson);
     var i = 0;
-
     return (
       <div>
         <div
@@ -72,4 +64,4 @@ class PurchaseReport extends Component {
   }
 }
 
-export default withRouter(PurchaseReport);
+export default PurchaseReport;

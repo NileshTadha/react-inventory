@@ -19,7 +19,7 @@ class MoreInfo extends Component {
       return;
     }
     var newurl =
-      "http://172.20.49.143:8080/inventory/user/supply?prodId=" +
+      "http://172.20.49.61:8080/inventory/user/supply?prodId=" +
       this.props.json.product.prodId +
       "&qty=" +
       quantity +
@@ -31,8 +31,6 @@ class MoreInfo extends Component {
       this.props.json.vendor.vendorId;
     // console.log(newurl);
 
-    // //console.log(buyPageUrl["vendorId"]);
-
     fetch(newurl, {
       method: "POST",
       headers: {
@@ -40,14 +38,12 @@ class MoreInfo extends Component {
       }
     })
       .then(response => {
-        // //console.log(response);
         return response.json();
       })
       .then(json => {
         // //console.log(json);
-        if (JSON.stringify(json) == "true") {
+        if (JSON.stringify(json) === "true") {
           alert("Buy successfully");
-          // window.location.assign("http://172.20.49.106:5500/home.html");
           window.location.reload();
           return;
         }
@@ -55,7 +51,7 @@ class MoreInfo extends Component {
       });
   };
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     return (
       <div className="col-md-6">
         <div className="left-content">

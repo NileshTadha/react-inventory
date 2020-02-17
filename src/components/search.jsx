@@ -12,24 +12,21 @@ class Search extends Component {
   onLoadFunc = () => {
     let searchContent = this.props.match.params.searchContent;
     let url =
-      `http://172.20.49.143:8080/inventory/user/search?search_query=` +
+      `http://172.20.49.61:8080/inventory/user/search?search_query=` +
       searchContent;
     fetch(url, {
       method: "GET",
 
       headers: {
         "Content-type": "application/json; charset=UTF-8"
-        // "user_id": localStorage.getItem("userId"),
-        // "user_token": localStorage.getItem("userTocken")
       }
     })
       .then(response => {
-        // //console.log(response);
         return response.json();
       })
       .then(json => {
         this.setState({ json: json, loading: true });
-        console.log(json);
+        // console.log(json);
       });
   };
 

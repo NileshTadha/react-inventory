@@ -1,17 +1,4 @@
 import React, { Component } from "react";
-// import { Redirect, Router } from "react-router-dom";
-// import ReactDOM from "react-dom";
-// import { Link } from "react-router-dom";
-import {
-  BrowserRouter as Router,
-  Route,
-  Redirect,
-  Switch
-} from "react-router-dom";
-import App from "../App";
-import { withRouter } from "react-router-dom";
-
-let resjson;
 
 class AccountInfo extends Component {
   state = {
@@ -25,7 +12,7 @@ class AccountInfo extends Component {
 
   onLoadFunc = () => {
     var url =
-      "http://172.20.49.143:8080/inventory/user/accountDetails?user_id=" +
+      "http://172.20.49.61:8080/inventory/user/accountDetails?user_id=" +
       localStorage.getItem("userId");
     // //console.log(url);
 
@@ -49,14 +36,14 @@ class AccountInfo extends Component {
     this.setState({ logout: true }, () => {
       window.location.href = "/";
     });
-    // console.log(this.state.logout);
+  };
+
+  goBack = () => {
+    this.props.history.goBack();
   };
 
   render() {
-    // if (this.state.logout) {
-    //   return <Redirect to="/" />;
-    // }
-
+    // console.log(this.props);
     return (
       <div className="best-features">
         <div className="container">
@@ -69,37 +56,25 @@ class AccountInfo extends Component {
             <div className="col-md-12">
               <div className="left-content">
                 <h4>{this.state.response.name}</h4>
-                {/* <!-- <p><a rel="nofollow" href="https://templatemo.com/tm-546-sixteen-clothing" target="_parent">This template</a> is free to use for your business websites. However, you have no permission to redistribute the downloadable ZIP file on any template collection website. <a rel="nofollow" href="https://templatemo.com/contact">Contact us</a> for more info.</p> --> */}
-
                 <span id="prodId">{localStorage.getItem("userId")}</span>
                 <br />
-
-                {/* <a
-                  id="buySubmit"
-                  style="color: white;background-color: #333;"
-                  className="filled-button"
-                >
+                <br />
+                <br />
+                <button onClick={this.goBack} className="button">
                   Back
-                </a> */}
+                </button>
                 <br />
                 <br />
-                <a
-                  style={{ color: "white", backgroundColor: "#333" }}
-                  onClick={this.logout}
-                  className="filled-button"
-                >
+                <button onClick={this.logout} className="button">
                   Log out
-                </a>
+                </button>
               </div>
             </div>
           </div>
         </div>
-        {/* <Router>
-          <Route path="/" component={App} />
-        </Router> */}
       </div>
     );
   }
 }
 
-export default withRouter(AccountInfo);
+export default AccountInfo;

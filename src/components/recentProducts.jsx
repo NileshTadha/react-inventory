@@ -11,11 +11,9 @@ class RecentProducts extends Component {
 
   fetchProducts = () => {
     var url =
-      "http://172.20.49.143:8080/inventory/user/home?user_id=" +
+      "http://172.20.49.61:8080/inventory/user/home?user_id=" +
       localStorage.getItem("userId");
     // //console.log(url);
-    //console.log(localStorage.getItem("userTocken"));
-    // carousel();
     fetch(url, {
       method: "GET",
 
@@ -27,7 +25,7 @@ class RecentProducts extends Component {
         return response.json();
       })
       .then(json => {
-        console.log(json);
+        // console.log(json);
         this.setState({ json: json });
       });
   };

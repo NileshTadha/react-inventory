@@ -31,13 +31,12 @@ class SearchBar extends Component {
           <input
             type="text"
             style={{ width: "80%", fontSize: "16px" }}
-            // id="search"
             onBlur={this.myChange}
             name="searchContent"
             placeholder="Search...."
           />
           <Link to={`/search/${this.state.searchContent}`}>
-            <input type="button" className="button" value="Search" />
+            <button className="button">Search</button>
           </Link>
         </div>
       </div>
