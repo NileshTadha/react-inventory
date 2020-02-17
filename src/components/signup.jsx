@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 
-class Login extends Component {
+class SignUp extends Component {
   state = {
+    name: "",
     userId: "",
     password: "",
     isValid: false
@@ -14,20 +15,23 @@ class Login extends Component {
     // alert(this.state.userId);
     const newUserId = this.state.userId;
     const newPassword = this.state.password;
+    const newName = this.state.name;
+
     // alert(newUserId + " " + newPassword);
-    if (newUserId === "" || newPassword === "") {
-      alert("Enter username and password");
+    if (newUserId === "" || newPassword === "" || newName === "") {
+      alert("Enter namme, username and password");
       return;
     }
-    const url =
-      "http://172.20.49.61:8080/inventory/login?user_id=" +
-      newUserId +
-      "&password=" +
-      newPassword;
+    const url = "http://172.20.49.61:8080/inventory/signUp";
 
     fetch(url, {
       //mode : "cors",
       method: "POST",
+      body: JSON.stringify({
+        name: newName,
+        user_id: newUserId,
+        password: newPassword
+      }),
       headers: {
         "Content-type": "application/json; charset=UTF-8"
       }
@@ -38,7 +42,7 @@ class Login extends Component {
       .then(res => {
         // console.log(res);
         if (res.token === "") {
-          alert("Invalid login");
+          alert("Email already resistered");
           return;
         }
         sessionStorage.setItem("userTocken", res.token);
@@ -58,12 +62,28 @@ class Login extends Component {
 
   render() {
     return (
-      <div id="container-login">
+      <div id="container-register">
         <div id="title">
           <i className="material-icons lock">lock</i> Login(User)
         </div>
 
         <form>
+          <div className="input" style={{ display: "flex" }}>
+            <div className="input-addon">
+              <i className="material-icons">face</i>
+            </div>
+            <input
+              id="userId"
+              placeholder="Name"
+              type="text"
+              required
+              className="validate"
+              autoComplete="off"
+              name="name"
+              onBlur={this.myChange}
+            />
+          </div>
+
           <div className="input" style={{ display: "flex" }}>
             <div className="input-addon">
               <i className="material-icons">email</i>
@@ -97,15 +117,17 @@ class Login extends Component {
               onBlur={this.myChange}
             />
           </div>
+
           <button className="button" onClick={this.loginAction}>
-            Log In
+            Register
           </button>
+          {/* <input type="submit" onClick={this.loginAction} value="Register" /> */}
         </form>
 
         <div className="register">
           Don't have an account yet?
-          <Link to="./signup">
-            <button className="button">Register here</button>
+          <Link to="/">
+            <button className="button">Log In here</button>
           </Link>
         </div>
       </div>
@@ -113,4 +135,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default SignUp;

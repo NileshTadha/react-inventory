@@ -1,12 +1,3 @@
-/* #mainContainer{
-    text-align: center;
-   
-} */
-
-/* @import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro:regular,bold,italic&subset=latin,latin-ext");
-
-@import url("https://fonts.googleapis.com/icon?family=Material+Icons"); */
-
 .input {
   width: 40%;
   padding: 12px 20px;
@@ -36,24 +27,18 @@ button:hover {
 
 .cardd {
   padding: 2px;
-  /* border: 1px solid black; */
-
   display: flex;
   flex-wrap: wrap;
   vertical-align: middle;
   flex-direction: row;
-  /* flex-grow: 1; */
 }
 
 .cardm {
   padding: 2px;
-  /* border: 1px solid black; */
-
   display: flex;
   flex-wrap: wrap;
   vertical-align: middle;
   flex-direction: row;
-  /* flex-grow: 1; */
 }
 
 ul {
@@ -74,20 +59,8 @@ li {
   text-decoration: none;
 }
 
-/* li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-} */
-
 li:hover {
   background-color: #111;
-}
-
-#showPurchaseReport:hover {
-  color: #6600ff;
 }
 
 .cardmm:hover {
@@ -192,39 +165,8 @@ li:hover {
 }
 
 .each-slide > div {
-  /* display: flex; */
   align-items: center;
   justify-content: center;
-  /* background-size: contain; */
   height: 300px;
   margin: auto;
 }
-
-/* .each-slide span {
-  padding: 20px;
-  font-size: 20px;
-  background: #efefef;
-  text-align: center;
-} */
-
-/* .each-fade {
-  display: flex;
-}
-
-.each-fade .image-container {
-  width: 75%;
-  overflow: hidden;
-}
-
-.each-fade .image-container img {
-  width: 100%;
-}
-
-.each-fade h2 {
-  width: 25%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0;
-  background: #adceed;
-} */

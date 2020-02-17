@@ -7,6 +7,7 @@ import AccountInfo from "./accountInfo";
 import Buy from "./buy";
 import Login from "./login";
 import Search from "./search";
+import SignUp from "./signup";
 class Home extends Component {
   state = {
     userId: localStorage.getItem("userId")
@@ -19,6 +20,7 @@ class Home extends Component {
         <Router>
           <Switch>
             <Route path="/" exact component={Login} />
+            <Route path="/signup" exact component={SignUp} />
             <Navbar userId={localStorage.getItem("userId")} />
           </Switch>
 
