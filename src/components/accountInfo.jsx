@@ -11,9 +11,14 @@ class AccountInfo extends Component {
   }
 
   onLoadFunc = () => {
+    if (sessionStorage.getItem("userId") == null) {
+      alert("please login");
+      console.log("hi");
+      window.location.href = "/";
+    }
     var url =
-      "http://172.20.49.61:8080/inventory/user/accountDetails?user_id=" +
-      localStorage.getItem("userId");
+      "http://172.20.49.73:8080/inventory/user/accountDetails?user_id=" +
+      sessionStorage.getItem("userId");
     // //console.log(url);
 
     fetch(url, {
@@ -56,7 +61,7 @@ class AccountInfo extends Component {
             <div className="col-md-12">
               <div className="left-content">
                 <h4>{this.state.response.name}</h4>
-                <span id="prodId">{localStorage.getItem("userId")}</span>
+                <span id="prodId">{sessionStorage.getItem("userId")}</span>
                 <br />
                 <br />
                 <br />

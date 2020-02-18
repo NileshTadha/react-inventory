@@ -22,7 +22,7 @@ class SignUp extends Component {
       alert("Enter namme, username and password");
       return;
     }
-    const url = "http://172.20.49.61:8080/inventory/signUp";
+    const url = "http://172.20.49.73:8080/inventory/signUp";
 
     fetch(url, {
       //mode : "cors",
@@ -46,7 +46,7 @@ class SignUp extends Component {
           return;
         }
         sessionStorage.setItem("userTocken", res.token);
-        localStorage.setItem("userId", newUserId);
+        sessionStorage.setItem("userId", newUserId);
 
         this.setState({ isValid: true }, () => {
           window.location.href = "/home";

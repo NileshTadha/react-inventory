@@ -1,24 +1,21 @@
-import React, { Component } from "react";
+import React from "react";
 
-class PurchaseDetails extends Component {
-  // state = {  }
-  render() {
-    return (
-      <div className="cardmm">
-        <br />
-        <div className="cardm">
-          <span className="sspan6">{this.props.id}</span>
-          <span className="sspan1">{this.props.detail.product.prodId}</span>
-          <span className="sspan4">{this.props.detail.product.prodName}</span>
-          <span className="sspan3">{this.props.detail.vendorName}</span>
-          <span className="sspan5">{this.props.detail.qty}</span>
-          <span className="sspan2">{this.props.detail.product.price}</span>
-          <span className="sspan7">{this.props.detail.timestamp}</span>
-        </div>
-        <hr style={{ borderTop: "1px solid black" }} />
+function PurchaseDetails(props) {
+  return (
+    <div className="cardmm">
+      <br />
+      <div className="cardm">
+        <span className="sspan6">{props.id}</span>
+        <span className="sspan1">{props.detail.product.prodId}</span>
+        <span className="sspan4">{props.detail.product.prodName}</span>
+        <span className="sspan3">{props.detail.vendorName}</span>
+        <span className="sspan5">{props.detail.qty}</span>
+        <span className="sspan2">{props.detail.product.price}</span>
+        <span className="sspan7">{props.detail.timestamp}</span>
       </div>
-    );
-  }
+      <hr style={{ borderTop: "1px solid black" }} />
+    </div>
+  );
 }
 
 export default PurchaseDetails;

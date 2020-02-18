@@ -11,9 +11,14 @@ class PurchaseReport extends Component {
   }
 
   onLoadFunc = () => {
+    if (sessionStorage.getItem("userId") == null) {
+      alert("please login");
+      console.log("hi");
+      window.location.href = "/";
+    }
     let url =
-      "http://172.20.49.61:8080/inventory/user/purchaseReport?user_id=" +
-      localStorage.getItem("userId") +
+      "http://172.20.49.73:8080/inventory/user/purchaseReport?user_id=" +
+      sessionStorage.getItem("userId") +
       "&selected=date";
     // console.log(url);
 

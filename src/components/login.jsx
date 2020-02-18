@@ -20,7 +20,7 @@ class Login extends Component {
       return;
     }
     const url =
-      "http://172.20.49.61:8080/inventory/login?user_id=" +
+      "http://172.20.49.73:8080/inventory/login?user_id=" +
       newUserId +
       "&password=" +
       newPassword;
@@ -42,7 +42,7 @@ class Login extends Component {
           return;
         }
         sessionStorage.setItem("userTocken", res.token);
-        localStorage.setItem("userId", newUserId);
+        sessionStorage.setItem("userId", newUserId);
 
         this.setState({ isValid: true }, () => {
           window.location.href = "/home";
