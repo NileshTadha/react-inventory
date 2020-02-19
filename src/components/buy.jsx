@@ -12,13 +12,13 @@ class Buy extends Component {
     this.onLoadFunc();
   }
   onLoadFunc = () => {
-    if (sessionStorage.getItem("userId") == null) {
-      alert("please login");
-      console.log("hi");
-      window.location.href = "/";
-    }
+    // if (sessionStorage.getItem("userId") == null) {
+    //   alert("please login");
+    //   console.log("hi");
+    //   window.location.href = "/";
+    // }
     var newurl =
-      "http://172.20.49.73:8080/inventory/user/home/getProduct?prodId=" +
+      "http://172.20.48.216:8080/inventory/user/home/getProduct?prodId=" +
       this.props.match.params.prodId;
 
     // console.log(newurl);
@@ -59,7 +59,7 @@ class Buy extends Component {
       return;
     }
     var newurl =
-      "http://172.20.49.73:8080/inventory/user/supply?prodId=" +
+      "http://172.20.48.216:8080/inventory/user/supply?prodId=" +
       this.state.json[id].product.prodId +
       "&qty=" +
       quantity +

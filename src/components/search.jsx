@@ -10,14 +10,14 @@ class Search extends Component {
   }
 
   onLoadFunc = () => {
-    if (sessionStorage.getItem("userId") == null) {
-      alert("please login");
-      console.log("hi");
-      window.location.href = "/";
-    }
+    // if (sessionStorage.getItem("userId") == null) {
+    //   alert("please login");
+    //   console.log("hi");
+    //   window.location.href = "/";
+    // }
     let searchContent = this.props.match.params.searchContent;
     let url =
-      `http://172.20.49.73:8080/inventory/user/search?search_query=` +
+      `http://172.20.48.216:8080/inventory/user/search?search_query=` +
       searchContent;
     fetch(url, {
       method: "GET",

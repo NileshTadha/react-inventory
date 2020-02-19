@@ -11,13 +11,13 @@ class AccountInfo extends Component {
   }
 
   onLoadFunc = () => {
-    if (sessionStorage.getItem("userId") == null) {
-      alert("please login");
-      console.log("hi");
-      window.location.href = "/";
-    }
+    // if (sessionStorage.getItem("userId") == null) {
+    //   alert("please login");
+    //   console.log("hi");
+    //   window.location.href = "/";
+    // }
     var url =
-      "http://172.20.49.73:8080/inventory/user/accountDetails?user_id=" +
+      "http://172.20.48.216:8080/inventory/user/accountDetails?user_id=" +
       sessionStorage.getItem("userId");
     // //console.log(url);
 
@@ -39,6 +39,7 @@ class AccountInfo extends Component {
 
   logout = () => {
     this.setState({ logout: true }, () => {
+      sessionStorage.removeItem("userId");
       window.location.href = "/";
     });
   };

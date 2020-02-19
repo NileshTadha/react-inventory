@@ -11,7 +11,7 @@ class RecentProducts extends Component {
 
   fetchProducts = () => {
     var url =
-      "http://172.20.49.73:8080/inventory/user/home?user_id=" +
+      "http://172.20.48.216:8080/inventory/user/home?user_id=" +
       sessionStorage.getItem("userId");
     // //console.log(url);
     fetch(url, {

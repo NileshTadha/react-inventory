@@ -22,7 +22,7 @@ class SignUp extends Component {
       alert("Enter namme, username and password");
       return;
     }
-    const url = "http://172.20.49.73:8080/inventory/signUp";
+    const url = "http://172.20.48.216:8080/inventory/signUp";
 
     fetch(url, {
       //mode : "cors",

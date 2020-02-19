@@ -1,8 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { NavLink, Link } from "react-router-dom";
 import SearchBar from "./searchbar";
 
 function Navbar(props) {
+  useEffect(() => {
+    if (sessionStorage.getItem("userId") == null) {
+      alert("please login");
+      console.log("hi");
+      window.location.href = "/";
+    }
+  });
   return (
     <div>
       <div>

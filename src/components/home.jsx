@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MainConainer from "./mainConainer";
 import PurchaseReport from "./purchaseReport";
@@ -10,9 +10,6 @@ import Search from "./search";
 import SignUp from "./signup";
 
 function Home(props) {
-  // console.log(this.props);
-  // console.log(this.state.userId);
-
   return (
     <div>
       <Router>
@@ -33,4 +30,5 @@ function Home(props) {
     </div>
   );
 }
+
 export default Home;
