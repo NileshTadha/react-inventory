@@ -10,6 +10,7 @@ function Navbar(props) {
       window.location.href = "/";
     }
   });
+  // console.log(props);
   return (
     <div>
       <div>

@@ -17,7 +17,7 @@ class Search extends Component {
     // }
     let searchContent = this.props.match.params.searchContent;
     let url =
-      `http://172.20.48.216:8080/inventory/user/search?search_query=` +
+      `http://172.20.48.251:8080/inventory/user/search?search_query=` +
       searchContent;
     fetch(url, {
       method: "GET",

@@ -3,7 +3,8 @@ import PurchaseDetails from "./purchaseDetails";
 
 class PurchaseReport extends Component {
   state = {
-    item: []
+    item: [],
+    selected: "date"
   };
 
   componentDidMount() {
@@ -16,10 +17,14 @@ class PurchaseReport extends Component {
     //   console.log("hi");
     //   window.location.href = "/";
     // }
+
+    // console.log("hiii");
+
     let url =
-      "http://172.20.48.216:8080/inventory/user/purchaseReport?user_id=" +
+      "http://172.20.48.251:8080/inventory/user/purchaseReport?user_id=" +
       sessionStorage.getItem("userId") +
-      "&selected=date";
+      "&selected=" +
+      this.state.selected;
     // console.log(url);
 
     fetch(url, {
@@ -37,11 +42,33 @@ class PurchaseReport extends Component {
         this.setState({ item: json });
       });
   };
-
+  myChange = event => {
+    // console.log(event.target.value);
+    this.setState({ selected: event.target.value }, () => {
+      this.onLoadFunc();
+    });
+  };
   render() {
     var i = 0;
+    // console.log(this.state.selected);
+    // this.onLoadFunc();
     return (
       <div>
+        {/* <SortBy /> */}
+
+        <br />
+        <form>
+          <label>
+            <span style={{ fontWeight: "bold", margin: "10px" }}>Sort By:</span>
+            <select onChange={this.myChange} value={this.state.selected}>
+              <option value="date">Date</option>
+              <option value="price">Price</option>
+              <option value="qty">Quantity</option>
+            </select>
+          </label>
+        </form>
+        <br />
+
         <div
           style={{
             backgroundColor: "#333",
