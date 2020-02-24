@@ -18,7 +18,7 @@ class Buy extends Component {
     //   window.location.href = "/";
     // }
     var newurl =
-      "http://172.20.48.251:8080/inventory/user/home/getProduct?prodId=" +
+      "http://172.20.49.40:8080/inventory/user/home/getProduct?prodId=" +
       this.props.match.params.prodId;
 
     // console.log(newurl);
@@ -59,7 +59,7 @@ class Buy extends Component {
       return;
     }
     var newurl =
-      "http://172.20.48.251:8080/inventory/user/supply?prodId=" +
+      "http://172.20.49.40:8080/inventory/user/supply?prodId=" +
       this.state.json[id].product.prodId +
       "&qty=" +
       quantity +

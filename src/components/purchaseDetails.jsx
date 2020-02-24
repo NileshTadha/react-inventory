@@ -10,7 +10,7 @@ function PurchaseDetails(props) {
         <span className="sspan4">{props.detail.product.prodName}</span>
         <span className="sspan3">{props.detail.vendorName}</span>
         <span className="sspan5">{props.detail.qty}</span>
-        <span className="sspan2">{props.detail.product.price}</span>
+        <span className="sspan2">{props.detail.orderPrice}</span>
         <span className="sspan7">{props.detail.timestamp}</span>
       </div>
       <hr style={{ borderTop: "1px solid black" }} />

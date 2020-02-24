@@ -11,7 +11,7 @@ class RecentProducts extends Component {
 
   fetchProducts = () => {
     var url =
-      "http://172.20.48.251:8080/inventory/user/home?user_id=" +
+      "http://172.20.49.40:8080/inventory/user/home?user_id=" +
       sessionStorage.getItem("userId");
     // //console.log(url);
     fetch(url, {
@@ -32,13 +32,16 @@ class RecentProducts extends Component {
 
   render() {
     let i = 0;
+    let label;
+    if (sessionStorage.getItem("type") === "customer") label = "Recent Product";
+    else label = "Recent Supply";
     return (
       <div className="latest-products">
         <div className="container">
           <div className="row" id="recentProdDetails">
             <div className="col-md-12">
               <div className="section-heading">
-                <h2>Recent Product</h2>
+                <h2>{label}</h2>
               </div>
             </div>
             {this.state.json.map(json => (

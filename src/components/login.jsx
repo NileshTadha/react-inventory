@@ -20,7 +20,7 @@ class Login extends Component {
       return;
     }
     const url =
-      "http://172.20.48.251:8080/inventory/login?user_id=" +
+      "http://172.20.49.40:8080/inventory/login?user_id=" +
       newUserId +
       "&password=" +
       newPassword;
@@ -36,13 +36,14 @@ class Login extends Component {
         return response.json();
       })
       .then(res => {
-        // console.log(res);
-        if (res.token === "") {
+        console.log(res);
+        if (res.type === "") {
           alert("Invalid login");
           return;
         }
         sessionStorage.setItem("userTocken", res.token);
         sessionStorage.setItem("userId", newUserId);
+        sessionStorage.setItem("type", res.type);
 
         this.setState({ isValid: true }, () => {
           window.location.href = "/home";
@@ -97,6 +98,7 @@ class Login extends Component {
               onBlur={this.myChange}
             />
           </div>
+
           <button className="button" onClick={this.loginAction}>
             Log In
           </button>

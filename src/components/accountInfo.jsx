@@ -17,7 +17,7 @@ class AccountInfo extends Component {
     //   window.location.href = "/";
     // }
     var url =
-      "http://172.20.48.251:8080/inventory/user/accountDetails?user_id=" +
+      "http://172.20.49.40:8080/inventory/user/accountDetails?user_id=" +
       sessionStorage.getItem("userId");
     // //console.log(url);
 

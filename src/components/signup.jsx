@@ -6,7 +6,8 @@ class SignUp extends Component {
     name: "",
     userId: "",
     password: "",
-    isValid: false
+    isValid: false,
+    type: "customer"
   };
 
   loginAction = e => {
@@ -22,7 +23,8 @@ class SignUp extends Component {
       alert("Enter namme, username and password");
       return;
     }
-    const url = "http://172.20.48.251:8080/inventory/signUp";
+    const url =
+      "http://172.20.49.40:8080/inventory/signUp?type=" + this.state.type;
 
     fetch(url, {
       //mode : "cors",
@@ -40,13 +42,14 @@ class SignUp extends Component {
         return response.json();
       })
       .then(res => {
-        // console.log(res);
+        console.log(res);
         if (res.token === "") {
           alert("Email already resistered");
           return;
         }
         sessionStorage.setItem("userTocken", res.token);
         sessionStorage.setItem("userId", newUserId);
+        sessionStorage.setItem("type", this.state.type);
 
         this.setState({ isValid: true }, () => {
           window.location.href = "/home";
@@ -73,7 +76,6 @@ class SignUp extends Component {
               <i className="material-icons">face</i>
             </div>
             <input
-              id="userId"
               placeholder="Name"
               type="text"
               required
@@ -89,7 +91,6 @@ class SignUp extends Component {
               <i className="material-icons">email</i>
             </div>
             <input
-              id="userId"
               placeholder="UserId"
               type="text"
               required
@@ -118,6 +119,20 @@ class SignUp extends Component {
             />
           </div>
 
+          <form>
+            <label>
+              <span style={{ fontWeight: "bold", margin: "10px" }}>Type:</span>
+              <select
+                name="type"
+                onChange={this.myChange}
+                value={this.state.type}
+              >
+                <option value="customer">Customer</option>
+                <option value="vendor">Vendor</option>
+              </select>
+            </label>
+          </form>
+          <br />
           <button className="button" onClick={this.loginAction}>
             Register
           </button>

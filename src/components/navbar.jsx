@@ -11,6 +11,10 @@ function Navbar(props) {
     }
   });
   // console.log(props);
+  let reportType;
+  if (sessionStorage.getItem("type") === "customer")
+    reportType = "Purchase Report";
+  else reportType = "Sell Report";
   return (
     <div>
       <div>
@@ -23,7 +27,7 @@ function Navbar(props) {
             <li>home</li>
           </Link>
           <Link to="/purchasereport">
-            <li>purchase report</li>
+            <li>{reportType}</li>
           </Link>
 
           <NavLink to="/accountInfo">
