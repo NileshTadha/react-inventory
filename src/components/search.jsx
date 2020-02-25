@@ -1,29 +1,27 @@
 import React, { Component } from "react";
 import ProductCard from "./productCard";
-import Pagination from "./pagination";
 class Search extends Component {
   state = {
-    json: [],
-    loading: false,
+    product: [],
+    flag: "",
+    isLoaded: false,
     pageNo: 1
   };
   componentDidMount() {
+    window.onscroll = () => {
+      if (this.state.flag === "done") return;
+      if (window.innerHeight + window.scrollY >= document.body.offsetHeight) {
+        this.setState({ pageNo: this.state.pageNo + 1 }, () =>
+          this.onLoadFunc()
+        );
+      }
+    };
     this.onLoadFunc();
-  }
-  componentWillReceiveProps(nextProps) {
-    // You don't have to do this check first, but it can help prevent an unneeded render
-    if (nextProps.match.params.pageNo !== this.props.match.params.pageNo) {
-      this.setState({ pageNo: nextProps.match.params.pageNo }, () => {
-        this.onLoadFunc();
-      });
-    }
   }
   onLoadFunc = () => {
     let searchContent = this.props.match.params.searchContent;
-    // this.setState({ pageNo: this.props.match.params.pageNo });
-    // let pageNo = this.state.pageNo;
     let url =
-      `http://172.20.49.40:8080/inventory/user/search?search_query=` +
+      `http://172.20.49.76:8080/inventory/user/search?search_query=` +
       searchContent +
       "&pageNo=" +
       this.state.pageNo;
@@ -39,14 +37,18 @@ class Search extends Component {
         return response.json();
       })
       .then(json => {
-        this.setState({ json: json, loading: true });
+        if (this.state.pageNo !== 1) {
+        }
+        this.setState({
+          product: [...this.state.product, ...json[0].product],
+          flag: json[1].flag,
+          isLoaded: true
+        });
         // console.log(json);
       });
   };
 
   render() {
-    let i = 0;
-
     return (
       <div>
         <div className="latest-products">
@@ -57,18 +59,28 @@ class Search extends Component {
                   <h2>Products from search</h2>
                 </div>
               </div>
-              {this.state.loading &&
-                this.state.json[0].product.map(json => (
-                  <ProductCard key={i++} json={json} />
+              {this.state.isLoaded &&
+                this.state.product.map(json => (
+                  <ProductCard key={json.prodId} json={json} />
                 ))}
             </div>
           </div>
+          {/* <button
+            className="button"
+            onClick={() => {
+              this.loadMore();
+            }}
+          >
+            load more
+          </button> */}
         </div>
-        <Pagination
+
+        {/* <Pagination
           pageNo={this.state.pageNo}
           searchContent={this.props.match.params.searchContent}
-          flag={this.state.loading && this.state.json[1].flag}
-        />
+          flag={this.state.isLoaded && this.state.json[1].flag}
+          onLoad={json => this.loadMore(json)}
+        /> */}
       </div>
     );
   }

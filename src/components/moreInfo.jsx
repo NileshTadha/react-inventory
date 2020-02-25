@@ -19,7 +19,7 @@ class MoreInfo extends Component {
       return;
     }
     var newurl =
-      "http://172.20.49.40:8080/inventory/user/supply?prodId=" +
+      "http://172.20.49.76:8080/inventory/user/supply?prodId=" +
       this.props.json.product.prodId +
       "&qty=" +
       quantity +

@@ -24,7 +24,7 @@ class SignUp extends Component {
       return;
     }
     const url =
-      "http://172.20.49.40:8080/inventory/signUp?type=" + this.state.type;
+      "http://172.20.49.76:8080/inventory/signUp?type=" + this.state.type;
 
     fetch(url, {
       //mode : "cors",

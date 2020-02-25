@@ -35,7 +35,7 @@ class SearchBar extends Component {
             name="searchContent"
             placeholder="Search...."
           />
-          <Link to={`/search/${this.state.searchContent}/1`}>
+          <Link to={`/search/${this.state.searchContent}`}>
             <button className="button">Search</button>
           </Link>
         </div>

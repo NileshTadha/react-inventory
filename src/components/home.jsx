@@ -24,11 +24,7 @@ function Home(props) {
           <Route path="/purchaseReport" exact component={PurchaseReport} />
           <Route path="/accountInfo" exact component={AccountInfo} />
           <Route path="/buy/:prodId" exact component={Buy} />
-          <Route
-            path="/search/:searchContent/:pageNo"
-            exact
-            component={Search}
-          />
+          <Route path="/search/:searchContent" exact component={Search} />
         </Switch>
       </Router>
     </div>

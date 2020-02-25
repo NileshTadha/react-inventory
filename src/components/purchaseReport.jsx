@@ -21,7 +21,7 @@ class PurchaseReport extends Component {
     // console.log("hiii");
 
     let url =
-      "http://172.20.49.40:8080/inventory/user/purchaseReport?user_id=" +
+      "http://172.20.49.76:8080/inventory/user/purchaseReport?user_id=" +
       sessionStorage.getItem("userId") +
       "&selected=" +
       this.state.selected;

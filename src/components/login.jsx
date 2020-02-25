@@ -20,7 +20,7 @@ class Login extends Component {
       return;
     }
     const url =
-      "http://172.20.49.40:8080/inventory/login?user_id=" +
+      "http://172.20.49.76:8080/inventory/login?user_id=" +
       newUserId +
       "&password=" +
       newPassword;
