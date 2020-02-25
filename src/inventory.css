@@ -1,0 +1,172 @@
+.input {
+  width: 40%;
+  padding: 12px 20px;
+  margin: 8px 8px;
+  box-sizing: border-box;
+}
+
+.button {
+  background-color: #333; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #111;
+  cursor: pointer;
+}
+
+.regText {
+  font-size: 18px;
+}
+
+.cardd {
+  padding: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  vertical-align: middle;
+  flex-direction: row;
+}
+
+.cardm {
+  padding: 2px;
+  display: flex;
+  flex-wrap: wrap;
+  vertical-align: middle;
+  flex-direction: row;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+  color: white;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li:hover {
+  background-color: #111;
+}
+
+.cardmm:hover {
+  background-color: #111;
+  color: white;
+}
+
+.span1 {
+  width: 30%;
+  vertical-align: middle;
+  padding-top: 11px;
+}
+
+.span2 {
+  width: 30%;
+  vertical-align: middle;
+  padding-top: 11px;
+}
+
+.span3 {
+  width: 20%;
+  vertical-align: middle;
+  padding-top: 11px;
+}
+
+.sspan1 {
+  width: 10%;
+}
+
+.sspan2 {
+  width: 10%;
+}
+
+.sspan3 {
+  width: 13%;
+}
+
+.sspan4 {
+  width: 12%;
+}
+
+.sspan5 {
+  width: 10%;
+}
+
+.sspan6 {
+  width: 5%;
+}
+
+.sspan7 {
+  width: 40%;
+}
+
+.span4 {
+  width: 15%;
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 12px 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+#userProdDetails {
+  margin-left: 50px;
+  margin-top: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+#prodDetails {
+  margin-left: 50px;
+  margin-top: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+#userAccountInfo {
+  margin-left: 50px;
+  margin-top: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+#vendorAccountInfo {
+  margin-left: 50px;
+  margin-top: 50px;
+  margin-right: 50px;
+  margin-bottom: 50px;
+  text-align: left;
+}
+
+.slide-container {
+  width: 90%;
+  text-align: center;
+  margin: auto;
+}
+
+.each-slide > div {
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  margin: auto;
+}
